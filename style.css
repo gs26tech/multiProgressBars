@@ -18,13 +18,14 @@ h2{
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 0px;
-    padding-top: 5%;
+    padding-top: 2%;
+    height: 100%;
+    overflow: auto;
 }
 .content{
     padding: 5px 5px;
     margin-left: 5%;
     margin-right: auto;
-    margin-top: 5%;
     margin-bottom: auto;
     width: 70%;
     border: 3px solid #d62839;
@@ -45,11 +46,12 @@ h2{
     z-index: 2;
     color: #ffffff;
     text-shadow: 2px 2px 2px #333133;
-    margin-top: 10px;
-    margin-left: 25%;
+    top: 50%;
+    left: 50%;
     position: absolute;
     vertical-align: middle;
     border-radius: .3em;
+    transform: translate(-50%,-50%);
     } 
 
 #progressContainer{
@@ -63,6 +65,7 @@ h2{
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    position: relative;
 }  
 .progress{
     height:2em;

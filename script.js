@@ -37,8 +37,8 @@ function getEndPoints(){
         } else barCount;*/
 
         for(i=0;i<barCount;i++){
-            document.getElementById('allBarsContainer').innerHTML += `<div id="progressContainer"><div class="progress">
-            <span class="value"></span></div>`
+            document.getElementById('allBarsContainer').innerHTML += `<div id="progressContainer"><span class="value"></span><div class="progress">
+            </div></div>`
             document.getElementsByClassName('progress')[i].style.setProperty("width",data.bars[i]+"%");
             document.getElementsByClassName('value')[i].innerHTML= data.bars[i]+"%";
 
