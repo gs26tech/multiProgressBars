@@ -2,13 +2,22 @@
      getEndPoints();
 }
 
+
 function getEndPoints(){
+    try{
     fetch ('https://agiledev.ncs.com.sg/DemoAPI/rest/barInputs/GetProgressBarsInput')
-    //fetch('endPoints.json')
+    //fetch('endPoints.json')  
     .then(function  (res){
+        //console.log (res)
+        if(!res.ok){
+            throw Error ("page is temporarily unavailable");
+        }
+        
         return res.json();
     })
     .then(function(data){
+
+
        maxWidth = data.limit;
         var i;
 
@@ -54,7 +63,12 @@ function getEndPoints(){
         select.insertBefore(option,select.lastChild);
         }    
     });
+}catch(e){
+    console.log(e);
+    alert(e)
 }
+}
+
 
 //on button click action
 function btnAction(btn){
