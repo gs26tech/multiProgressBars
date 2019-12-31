@@ -1,23 +1,24 @@
  window.onload=function pageload(){
      getEndPoints();
-     //addBars(4);
-     //addButtons(a);
 }
 
 function getEndPoints(){
-    //fetch ('https://agiledev.ncs.com.sg/DemoAPI/rest/barInputs/GetProgressBarsInput')
-    fetch('endPoints.json')
+    fetch ('https://agiledev.ncs.com.sg/DemoAPI/rest/barInputs/GetProgressBarsInput')
+    //fetch('endPoints.json')
     .then(function  (res){
         return res.json();
     })
     .then(function(data){
         console.log(data);
-        const maxWidth = data.limit;
+       maxWidth = data.limit;
         var i;
         var btnCount = data.buttons.length;
-       /* if(btnCount>6){
+
+      if(data.IsMaxBarBtn){
+        if(btnCount>6){
             btnCount=6;
-        } else btnCount;*/
+        } else btnCount;
+     }
 
         for(i=0;i<btnCount;i++){
             var btn = document.createElement("button");
@@ -32,15 +33,17 @@ function getEndPoints(){
         }
 
         var barCount = data.bars.length;
-       /* if(barCount>5){
+        if(data.IsMaxBarBtn){ if(barCount>5){
             barCount=5;
-        } else barCount;*/
+        } else barCount;}
 
         for(i=0;i<barCount;i++){
             document.getElementById('allBarsContainer').innerHTML += `<div id="progressContainer"><span class="value"></span><div class="progress">
             </div></div>`
             document.getElementsByClassName('progress')[i].style.setProperty("width",data.bars[i]+"%");
-            document.getElementsByClassName('value')[i].innerHTML= data.bars[i]+"%";
+            document.getElementsByClassName('value')[i].innerHTML= Math.abs(data.bars[i])+"%";
+
+            setColor(Math.abs(data.bars[i]),i);
 
             var select = document.getElementById('dropdown');
             var seq = i;
@@ -65,18 +68,14 @@ function btnAction(btn){
    
    if(newWidth<=0){
        newWidth = 0;
-   } else if(newWidth>=160){
-       newWidth=160;
+   } else if(newWidth>=maxWidth){
+       newWidth=maxWidth;
    }else newWidth;
 
    document.getElementsByClassName('progress')[pbCurrIndex].style.setProperty("width",newWidth+"%");
    document.getElementsByClassName('value')[pbCurrIndex].innerHTML= newWidth + "%";
-   
-   if(newWidth>100){
-    document.getElementsByClassName('progress')[pbCurrIndex].style.setProperty("background-color","#f39c12")
-   }else if(newWidth<=100){
-    document.getElementsByClassName('progress')[pbCurrIndex].style.setProperty("background-color","#2980b9") 
-   }
+
+   setColor(newWidth,pbCurrIndex);
 }
 
 function getSelectedValue(){
@@ -101,6 +100,14 @@ function getSelectedValue(){
     return pbCurrIndex;
  } 
 
+ function setColor(width, currIndex){
+    if(width>100){
+        document.getElementsByClassName('progress')[currIndex].style.setProperty("background-color","#f39c12")
+       }else if(width<=100){
+        document.getElementsByClassName('progress')[currIndex].style.setProperty("background-color","#2980b9") 
+       }
+ }
+ 
  /*function addBars(a){
      //var dynamicaBar = document.createElement('div');
      for(i=0;i<a;i++){

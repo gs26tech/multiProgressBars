@@ -15,27 +15,31 @@ h2{
 .main{
     background-color:#fff;
     width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 0px;
-    padding-top: 2%;
     height: 100%;
+    margin: 0 auto;
     overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.content{
-    padding: 5px 5px;
+
+.box{
     margin-left: 5%;
-    margin-right: auto;
-    margin-bottom: auto;
-    width: 70%;
+    margin-right: 5%;
+    width: auto;
     border: 3px solid #d62839;
     box-shadow: 2px 2px #ccc;
-    justify-content: space-evenly;
     border-radius: .3em;
-    padding-right: 10px;
-    padding-left: 10px;
-    padding-bottom: 10px;
-    padding-top: 10px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.content{
+    width: 70%;
+    padding-right: 10%;
+    padding-left: 10%;
+    padding-top: 2%;
+    margin-bottom: 2%;
+    justify-content: space-evenly;
 }
 .barBox{
     justify-content: space-evenly;
@@ -112,10 +116,16 @@ h2{
 
 .actions{
     width: 100%;
+    margin-top: auto;
 }
 
 .btnCon{
     float: right;
+
+}
+.btndd{
+    float: left;;
 }
 
+@media only screen and (max-width:1100px){.actions td{width:100%;float:left;}}
 
