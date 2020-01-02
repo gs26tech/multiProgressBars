@@ -5,15 +5,15 @@
 
 function getEndPoints(){
     try{
-    fetch ('https://agiledev.ncs.com.sg/DemoAPI/rest/barInputs/GetProgressBarsInput')
+     fetch ('http://pb-api.herokuapp.com/bars')
     //fetch('endPoints.json')  
     .then(function  (res){
-        //console.log (res)
         if(!res.ok){
             throw Error ("page is temporarily unavailable");
         }
         
         return res.json();
+
     })
     .then(function(data){
 
