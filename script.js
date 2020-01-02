@@ -4,8 +4,8 @@
 
 
 function getEndPoints(){
-     //fetch ('http://pb-api.herokuapp.com/bars')
-     fetch('https://agiledev.ncs.com.sg/DemoAPI/rest/barInputs/GetProgressBarsInpu')
+     fetch ('http://pb-api.herokuapp.com/bars')
+    // fetch('https://agiledev.ncs.com.sg/DemoAPI/rest/barInputs/GetProgressBarsInput')
     //fetch('endPoints.json')
     
     .catch(function(error){
