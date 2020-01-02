@@ -4,18 +4,19 @@
 
 
 function getEndPoints(){
-    try{
-     fetch ('http://pb-api.herokuapp.com/bars')
-     //fetch('https://agiledev.ncs.com.sg/DemoAPI/rest/barInputs/GetProgressBarsInput')
-    //fetch('endPoints.json')  
-    .then(function  (res){
-        /*if(!res.ok){
-            throw Error ("page is temporarily unavailable");}*/      
+     //fetch ('http://pb-api.herokuapp.com/bars')
+     fetch('https://agiledev.ncs.com.sg/DemoAPI/rest/barInputs/GetProgressBarsInpu')
+    //fetch('endPoints.json')
+    
+    .catch(function(error){
+       document.getElementById('pageContent').style.display = "none";
+       document.getElementById('pageError').innerHTML= "Data service is temporarily unavailable."
+       document.body.style.backgroundColor = "white";  
+    })
+    .then(function  (res){  
         return res.json();
     })
     .then(function(data){
-
-
        maxWidth = data.limit;
         var i;
 
@@ -61,10 +62,6 @@ function getEndPoints(){
         select.insertBefore(option,select.lastChild);
         }    
     });
-}catch(e){
-    console.log(e);
-    alert(e)
-}
 }
 
 
