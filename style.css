@@ -29,6 +29,7 @@ h2{
     box-shadow: 2px 2px #ccc;
     border-radius: .3em;
     padding: 10px;
+    display: none;
 }
 
 .content{

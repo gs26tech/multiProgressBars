@@ -17,6 +17,7 @@ function getEndPoints(){
         return res.json();
     })
     .then(function(data){
+       document.getElementById('boxPB').style.display = "block";
        maxWidth = data.limit;
         var i;
 
